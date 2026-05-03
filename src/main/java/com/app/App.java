@@ -19,10 +19,22 @@ public class App {
             os.write(response.getBytes());
             os.close();
         });
-
         server.createContext("/health", exchange -> {
-            String response = "OK";
-            exchange.sendResponseHeaders(200, response.length());
+            String fail = System.getenv("FAIL");
+
+            String response;
+            int statusCode;
+
+            if ("true".equals(fail)) {
+                response = "FAIL";
+                statusCode = 500;
+                System.out.println("Health check triggered FAILURE mode!");
+            } else {
+                response = "OK";
+                statusCode = 200;
+            }
+
+            exchange.sendResponseHeaders(statusCode, response.length());
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
             os.close();
