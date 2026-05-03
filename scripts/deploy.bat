@@ -1,6 +1,6 @@
 @echo off
 
-set IMAGE=yourusername/cicd-app:v1
+set IMAGE=ashish0110/cicd-app:v1
 
 echo Pulling latest image from Docker Hub...
 docker pull %IMAGE%

@@ -1,5 +1,6 @@
 @echo off
 
+echo Running health check on port 9090...
 curl -f http://localhost:9090/health
 
 IF %ERRORLEVEL% NEQ 0 (
