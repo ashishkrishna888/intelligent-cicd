@@ -29,5 +29,5 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/cicd-app:v1 .
         docker push ${{ secrets.DOCKER_USERNAME }}/cicd-app:v1
 
-    - name: Show Success Message
-      run: echo "✅ Image successfully pushed to Docker Hub: ashish0110/cicd-app:v1"
+    - name: Success Message
+      run: echo "✅ Image pushed to Docker Hub successfully!"
